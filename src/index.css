@@ -1,0 +1,202 @@
+@import "https://js.arcgis.com/4.33/@arcgis/core/assets/esri/themes/light/main.css";
+@import "react-bootstrap-typeahead/css/Typeahead.css";
+
+/* CSS pour les icons */
+.address-color {
+    color: #18753C !important;
+    font-weight: bold !important; 
+}
+
+.cadastre-color {
+    color: #000091 !important; 
+    font-weight: bold !important;
+}
+
+.poi-color {
+    color: #E69F00 !important; 
+    font-weight: bold !important;
+}
+
+img {
+    width: 400px;
+    height: auto;
+}
+
+
+.app{
+    display: flex;
+    flex-direction: column; 
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+.nav{
+    background-color: lightblue;
+    padding: 1rem;
+    flex-shrink: 0; 
+}
+
+
+/* CSS pour le conteneur des Routes */
+
+
+.conteneur{
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto; 
+    position: relative;
+    display: flex;
+    flex: 1;
+}
+
+/* CSS pour Autocomplete */
+
+.recherche{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1002;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.autocompletion{
+    z-index: 1001;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90%;
+    flex: 1;
+    position: relative;
+}
+
+/* CSS pour Panneau */
+
+.panneau {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px; 
+    background-color: white;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%); 
+    overflow: visible; 
+    z-index: 1001;
+}
+
+.panneau.ouvert {
+    transform: translateX(0);
+}
+
+.toggle-panneau {
+    position: absolute;
+    right: -20px; 
+    top: 25%;
+    bottom: 25%;
+    height: 50%;
+    width: 20px; 
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+.contenu-panneau{
+    padding: 1rem;
+    position: relative;
+    height: 90%; 
+    overflow-y: auto; 
+}
+
+
+/* CSS pour Carte */
+
+.mapView{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* CSS pour Footer */
+
+.footer {
+    background-color: transparent;
+    text-align: center;
+    margin-top: auto; 
+    padding: 0px;
+}
+
+.footer a{
+    color: rgb(137, 195, 214);
+}
+
+/* CSS pour Pages statiques */
+
+
+.scrollable-content {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+
+@media (max-width: 799px) {
+
+   img {
+    width: 250px;
+    height: auto;
+    }
+
+    .conteneur{
+        padding: 0;
+        overflow-x: hidden; 
+        overflow-y: auto; 
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    /* CSS pour Panneau */
+
+    .panneau {
+        width: 100%; /* Pleine largeur */
+        height: 300px; /* Hauteur automatique */
+        top: auto;
+        left: 0;
+        bottom: 0;
+        transform: translateY(100%); /* Cache le panneau vers le bas */
+        transition: transform 0.3s ease;
+    }
+
+    .panneau.ouvert {
+        transform: translateY(0); /* Ouvre le panneau vers le haut */
+    }
+
+    .toggle-panneau {
+        right: auto;
+        top: -15px; /* Place le bouton au-dessus du panneau */
+        right: 25%;
+        width: 50%; /* Pleine largeur */
+        height: 15px; /* Hauteur fixe */
+        border-radius: 0 0 4px 4px; /* Bordure arrondie en bas */
+    }
+ 
+}
+
+

@@ -1,0 +1,42 @@
+{
+  "name": "api_loc_front",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@arcgis/core": "^4.34.8",
+    "bootstrap": "^5.3.8",
+    "lodash": "^4.17.21",
+    "lodash.debounce": "^4.0.8",
+    "react": "^19.2.0",
+    "react-bootstrap": "^2.10.10",
+    "react-bootstrap-typeahead": "^6.4.1",
+    "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.9.6",
+    "react-select": "^5.10.2",
+    "react-use": "^17.6.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/arcgis-js-api": "^4.28.4",
+    "@types/lodash": "^4.17.21",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "5.4.2"
+  }
+}
