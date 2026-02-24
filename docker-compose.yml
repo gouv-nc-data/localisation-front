@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: react-app
+    container_name: localisation-front
     ports:
       - "81:81"
     restart: unless-stopped
