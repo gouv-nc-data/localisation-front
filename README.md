@@ -1,73 +1,21 @@
-# React + TypeScript + Vite
+# Localisation front
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ce dépôt contient les codes sources nécessaires au déploiement du front API Localisation. Il permet aux utilisateurs d'effectuer des recherches/localisations d'adresses, de POI et de lots cadastraux dont les résultats sont issus de l'api loc https://localisation.gouv.nc/api/.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Spécificités techniques
 
-## React Compiler
+### Générales
+Ce front est essentiellement développé en React v19.2.0 avec une surcouche Typescript v5.9.3 ES11. Le build se fait à l'aide de Vite Js.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Cartographie
+La partie cartographie utilise les fonctionnalités de l'API ArcGIS Maps SDK for JavaScript JS v4.34.8 (https://developers.arcgis.com/javascript/latest/). Les fonds de plan sont directement issus de l'argis online du gouvernement (https://dtsi-sgt.maps.arcgis.com).
 
-## Expanding the ESLint configuration
+### UI
+Des composants React Bootstrap v2.10.10 (https://react-bootstrap.netlify.app/), ainsi que react-bootstrap-typeahead v6.4.1 (https://ericgio.github.io/react-bootstrap-typeahead/) pour l'autocompletion ont été utilisés pour leur simplicité d'utilisation, d'interfaçage et leur rendu ergonomique.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Déploiement
+L'application est buildée et servie dans un container via une image node + nginx.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
