@@ -1,9 +1,16 @@
+name: localisation-front
 services:
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: localisation-front
+  main:
+    image: docker-registry.ref.gnc/gouv-nc-data/localisation-front:latest
+    environment:
+      API_URL: https://localisation.gouv.nc/api/
     ports:
-      - "81:81"
+      - "${PORT_81}:81"
     restart: unless-stopped
+    labels:
+      - logweb.dtsi_access=ETUDE
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.2'
